@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Завод по преобразованию энергии из навоза</title>
+    <style>
+        /* Основные настройки сброса и шрифтов */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Контейнер для центрирования контента */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Хедер (Главный экран) */
+        header {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Общие стили для секций */
+        section {
+            padding: 50px 0;
+        }
+
+        h2 {
+            color: #27ae60;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: #27ae60;
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Секция Актуальность */
+        .relevance-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        /* Секция Цель */
+        .goal-box {
+            background: #e8f5e9;
+            border-left: 5px solid #2ecc71;
+            padding: 30px;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            text-align: center;
+        }
+
+        /* Секция Задачи (Список) */
+        .tasks-list {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tasks-list ul {
+            list-style: none;
+        }
+
+        .tasks-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .tasks-list li:last-child {
+            border-bottom: none;
+        }
+
+        .tasks-list li::before {
+            content: '✔';
+            color: #2ecc71;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Секция Как это работает */
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            text-align: center;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 200px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .step-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background: #2ecc71;
+            color: white;
+            border-radius: 50%;
+            line-height: 40px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        /* Секция Чертеж */
+        .blueprint-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #dfe6e9;
+            border: 3px dashed #b2bec3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #636e72;
+            font-size: 1.5rem;
+            border-radius: 10px;
+        }
+
+        /* Секция Предметы */
+        .tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tag {
+            background: #34495e;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+        }
+
+        /* Футер */
+        footer {
+            background: #2c3e50;
+            color: #ecf0f1;
+            text-align: center;
+            padding: 30px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Адаптивность для мобильных */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .process-steps {
+                flex-direction: column;
+            }
+            .step {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Главный заголовок -->
+    <header>
+        <div class="container">
+            <h1>Завод по преобразованию энергии из навоза: проектировочная идея</h1>
+            <p>Инновационный проект по созданию завода, который производит энергию из органических отходов с помощью биогазовой технологии.</p>
+        </div>
+    </header>
+
+    <!-- Актуальность проекта -->
+    <section class="container">
+        <h2>Актуальность проекта</h2>
+        <div class="relevance-grid">
+            <div class="card">
+                <h3>Переработка отходов</h3>
+                <p>Навоз, оставаясь в полях, выделяет метан и загрязняет грунтовые воды. Переработка решает проблему утилизации.</p>
+            </div>
+            <div class="card">
+                <h3>Экология</h3>
+                <p>Биогаз снижает парниковый эффект, предотвращая выброс вредных газов в атмосферу.</p>
+            </div>
+            <div class="card">
+                <h3>Польза городу</h3>
+                <p>Получение альтернативного источника электроэнергии и тепла, а также производство качественных удобрений.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Цель проекта -->
+    <section style="background-color: #fff;">
+        <div class="container">
+            <h2>Цель проекта</h2>
+            <div class="goal-box">
+                «Разработать идею, структуру и чертёж завода, который сможет производить энергию из навоза с использованием биогазовой технологии».
+            </div>
+        </div>
+    </section>
+
+    <!-- Задачи проекта -->
+    <section class="container">
+        <h2>Задачи проекта</h2>
+        <div class="tasks-list">
+            <ul>
+                <li>Изучить процесс образования биогаза</li>
+                <li>Собрать информацию о существующих технологиях</li>
+                <li>Разработать чертёж и структуру завода</li>
+                <li>Описать принцип работы реактора</li>
+                <li>Оценить экономическую и экологическую пользу для города</li>
+                <li>Подготовить визуальную схему процесса</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Как работает завод -->
+    <section style="background-color: #fff;">
+        <div class="container">
+            <h2>Как работает завод</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Сбор сырья</h3>
+                    <p>Сбор навоза с фермерских хозяйств в специальные резервуары.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Переработка</h3>
+                    <p>Брожение биомассы в герметичных реакторах и выделение биогаза.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Генерация</h3>
+                    <p>Сжигание биогаза в генераторах для получения электричества и тепла.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Подача в сеть</h3>
+                    <p>Транспортировка готовой электроэнергии потребителям в городе.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Чертёж завода -->
+    <section class="container">
+        <h2>Чертёж завода</h2>
+        <div class="blueprint-placeholder">
+            [Здесь будет размещено изображение чертежа завода]
+        </div>
+    </section>
+
+    <!-- Использованные предметы -->
+    <section style="background-color: #fff;">
+        <div class="container">
+            <h2>Использованные предметы и знания</h2>
+            <div class="tags">
+                <span class="tag">Физика</span>
+                <span class="tag">Химия</span>
+                <span class="tag">Математика</span>
+                <span class="tag">Информатика</span>
+                <span class="tag">Экология</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <p>Школьный проект. Авторы: Мамат Арфан, Шин Андрей.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
