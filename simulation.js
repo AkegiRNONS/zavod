@@ -30,7 +30,7 @@ opacity: 0.6 + Math.random() * 0.4
 function drawReactor() {
 ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-```
+
 const W = canvas.width;
 const H = canvas.height;
 
@@ -183,7 +183,7 @@ const legY = reactorBottom;
 
 ctx.fillRect(reactorX + 20,               legY, legW, legH);
 ctx.fillRect(reactorX + reactorWidth - 20 - legW, legY, legW, legH);
-```
+
 
 }
 
