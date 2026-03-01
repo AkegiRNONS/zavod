@@ -14,17 +14,8 @@ let waveOffset = 0;
 
 // ✅ Адаптация canvas под реальный размер на экране
 function resizeCanvas() {
-    const ratio = window.devicePixelRatio || 1;
-    const width = canvas.offsetWidth;
-    const height = canvas.offsetHeight;
-
-    canvas.width = width * ratio;
-    canvas.height = height * ratio;
-
-    canvas.style.width = width + "px";
-    canvas.style.height = height + "px";
-
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+    canvas.width = canvas.offsetWidth;
+    canvas.height = canvas.offsetHeight;
 }
 
 resizeCanvas();
