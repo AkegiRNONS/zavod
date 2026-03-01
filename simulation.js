@@ -5,9 +5,9 @@ let waveOffset = 0;
 
 // ✅ Адаптация canvas под реальный размер на экране
 function resizeCanvas() {
-const rect = canvas.getBoundingClientRect();
-canvas.width = rect.width;
-canvas.height = rect.height;
+    const rect = canvas.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
 }
 
 resizeCanvas();
