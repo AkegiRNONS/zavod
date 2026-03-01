@@ -112,11 +112,12 @@ for (let x = reactorX + 10; x <= reactorX + reactorWidth - 10; x++) {
 }
 ctx.stroke();
 
-waveOffset += 0.03;
+waveOffset += 0.01 + temperature * 0.0015;
 
 // === ПУЗЫРЬКИ ===
 // Генерируем новые пузырьки случайно
-if (Math.random() < 0.15) {
+const activity = Math.max(0, 1 - Math.abs(temperature - 37) / 20);
+if (Math.random() < 0.05 + activity * 0.25) {
     createBubble(reactorX, reactorWidth, reactorBottom - 10);
 }
 
