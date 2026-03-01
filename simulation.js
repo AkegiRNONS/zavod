@@ -1,3 +1,12 @@
+let temperature = 35;
+
+const tempSlider = document.getElementById("tempSlider");
+const tempValue = document.getElementById("tempValue");
+
+tempSlider.addEventListener("input", function() {
+    temperature = parseFloat(this.value);
+    tempValue.textContent = temperature;
+});
 const canvas = document.getElementById("reactorCanvas");
 const ctx = canvas.getContext("2d");
 
