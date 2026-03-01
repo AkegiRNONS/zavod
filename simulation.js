@@ -1,3 +1,4 @@
+alert("JS подключён");
 const canvas = document.getElementById("reactorCanvas");
 const ctx = canvas.getContext("2d");
 
