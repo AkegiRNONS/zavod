@@ -1,3 +1,4 @@
+alert("файл загрузился");
 let temperature = 35;
 
 const tempSlider = document.getElementById("tempSlider");
