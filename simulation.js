@@ -1,5 +1,5 @@
-const canvas = document.getElementById(“reactorCanvas”);
-const ctx = canvas.getContext(“2d”);
+const canvas = document.getElementById("reactorCanvas");
+const ctx = canvas.getContext("2d");
 
 let waveOffset = 0;
 
