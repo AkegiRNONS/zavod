@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Завод по преобразованию энергии из навоза</title>
     <style>
-        /* Основные настройки сброса и шрифтов */
         * {
             margin: 0;
             padding: 0;
@@ -19,14 +18,12 @@
             line-height: 1.6;
         }
 
-        /* Контейнер для центрирования контента */
         .container {
             max-width: 1000px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        /* Хедер (Главный экран) */
         header {
             background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
@@ -50,7 +47,6 @@
             margin: 0 auto;
         }
 
-        /* Общие стили для секций */
         section {
             padding: 50px 0;
         }
@@ -73,7 +69,6 @@
             border-radius: 2px;
         }
 
-        /* Секция Актуальность */
         .relevance-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -97,7 +92,6 @@
             margin-bottom: 10px;
         }
 
-        /* Секция Цель */
         .goal-box {
             background: #e8f5e9;
             border-left: 5px solid #2ecc71;
@@ -107,7 +101,6 @@
             text-align: center;
         }
 
-        /* Секция Задачи (Список) */
         .tasks-list {
             background: white;
             padding: 30px;
@@ -140,7 +133,6 @@
             font-weight: bold;
         }
 
-        /* Секция Как это работает */
         .process-steps {
             display: flex;
             justify-content: space-between;
@@ -171,7 +163,6 @@
             margin-bottom: 15px;
         }
 
-        /* Секция Чертеж */
         .blueprint-placeholder {
             width: 100%;
             height: 400px;
@@ -185,7 +176,6 @@
             border-radius: 10px;
         }
 
-        /* Секция Предметы */
         .tags {
             display: flex;
             justify-content: center;
@@ -201,7 +191,6 @@
             font-size: 1rem;
         }
 
-        /* Футер */
         footer {
             background: #2c3e50;
             color: #ecf0f1;
@@ -214,7 +203,18 @@
             font-size: 0.9rem;
         }
 
-        /* Адаптивность для мобильных */
+        /* ✅ Адаптивный canvas */
+        #reactorCanvas {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            border: 3px solid #bdc3c7;
+            border-radius: 10px;
+            background: #ecf0f1;
+            display: block;
+            margin: 0 auto;
+        }
+
         @media (max-width: 768px) {
             header h1 {
                 font-size: 1.8rem;
@@ -225,12 +225,14 @@
             .step {
                 width: 100%;
             }
+            #reactorCanvas {
+                height: 260px;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Главный заголовок -->
     <header>
         <div class="container">
             <h1>Завод по преобразованию энергии из навоза: проектировочная идея</h1>
@@ -238,7 +240,6 @@
         </div>
     </header>
 
-    <!-- Актуальность проекта -->
     <section class="container">
         <h2>Актуальность проекта</h2>
         <div class="relevance-grid">
@@ -257,7 +258,6 @@
         </div>
     </section>
 
-    <!-- Цель проекта -->
     <section style="background-color: #fff;">
         <div class="container">
             <h2>Цель проекта</h2>
@@ -267,7 +267,6 @@
         </div>
     </section>
 
-    <!-- Задачи проекта -->
     <section class="container">
         <h2>Задачи проекта</h2>
         <div class="tasks-list">
@@ -282,7 +281,6 @@
         </div>
     </section>
 
-    <!-- Как работает завод -->
     <section style="background-color: #fff;">
         <div class="container">
             <h2>Как работает завод</h2>
@@ -311,7 +309,6 @@
         </div>
     </section>
 
-    <!-- Чертёж завода -->
     <section class="container">
         <h2>Чертёж завода</h2>
         <div class="blueprint-placeholder">
@@ -319,7 +316,6 @@
         </div>
     </section>
 
-    <!-- Использованные предметы -->
     <section style="background-color: #fff;">
         <div class="container">
             <h2>Использованные предметы и знания</h2>
@@ -332,22 +328,19 @@
             </div>
         </div>
     </section>
-   
-   <!-- Симуляция реактора -->
-   <section style="background-color: #ffffff;">
-       <div class="container">
-           <h2>Симуляция биореактора</h2>
-           <div style="text-align:center;">
-               <canvas id="reactorCanvas" width="600" height="400" 
-                       style="border: 3px solid #bdc3c7; border-radius: 10px; background:#ecf0f1;">
-               </canvas>
-           </div>
-       </div>
-   </section>
 
-   <script src="simulation.js"></script>
-    
-    <!-- Футер -->
+    <section style="background-color: #ffffff;">
+        <div class="container">
+            <h2>Симуляция биореактора</h2>
+            <div style="text-align:center;">
+                <!-- ✅ Убраны жёсткие width/height — теперь задаются через CSS -->
+                <canvas id="reactorCanvas"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <script src="simulation.js"></script>
+
     <footer>
         <div class="container">
             <p>Школьный проект. Авторы: Мамат Арфан, Шин Андрей.</p>
@@ -355,5 +348,4 @@
     </footer>
 
 </body>
-
 </html>
