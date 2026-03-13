@@ -203,28 +203,34 @@
             font-size: 0.9rem;
         }
         
-   <div style="margin:20px 0;text-align:center;">
-       <label>Температура: <span id="tempValue">35</span>°C</label>< 
-       <input type="range" id="tempSlider" min="10" max="60" value="35" style="width:60%;">
-   </div>
+           footer p {
+            font-size: 0.9rem;
+        }
+        
+        /* ✅ Теперь тут только правила оформления, никакого лишнего кода! */
+        #reactorCanvas {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            display: block;
+            margin: 0 auto;
+            touch-action: none; /* Чтобы страница не дергалась при касании симуляции */
+        }
 
-        /* ✅ Адаптивный canvas (исправленный) */
-#reactorCanvas {
-    width: 100%;
-    max-width: 600px;
-    height: 400px;
-    /* Убраны border и background, так как реактор рисуется внутри */
-    display: block;
-    margin: 0 auto;
-    /* Улучшает рендеринг на мобильных */
-    touch-action: none; 
-}
-
-@media (max-width: 768px) {
-    #reactorCanvas {
-        height: 280px; /* Чуть увеличил высоту для телефона */
-    }
-}
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+            .process-steps {
+                flex-direction: column;
+            }
+            .step {
+                width: 100%;
+            }
+            #reactorCanvas {
+                height: 280px; /* Уменьшаем высоту для мобилок */
+            }
+        }
 
 
         
@@ -328,15 +334,21 @@
         </div>
     </section>
 
-    <section style="background-color: #ffffff;">
+        <section style="background-color: #ffffff;">
         <div class="container">
             <h2>Симуляция биореактора</h2>
+            
+            <div style="margin:20px 0; text-align:center;">
+                <label>Температура: <span id="tempValue">35</span>°C</label><br>
+                <input type="range" id="tempSlider" min="10" max="60" value="35" style="width:80%; max-width:400px;">
+            </div>
+
             <div style="text-align:center;">
-                <!-- ✅ Убраны жёсткие width/height — теперь задаются через CSS -->
                 <canvas id="reactorCanvas"></canvas>
             </div>
         </div>
     </section>
+
 
     <script src="simulation.js"></script>
 
