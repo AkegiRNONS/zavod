@@ -208,17 +208,24 @@
        <input type="range" id="tempSlider" min="10" max="60" value="35" style="width:60%;">
    </div>
 
-        /* ✅ Адаптивный canvas */
-        #reactorCanvas {
-            width: 100%;
-            max-width: 600px;
-            height: 400px;
-            border: 3px solid #bdc3c7;
-            border-radius: 10px;
-            background: #ecf0f1;
-            display: block;
-            margin: 0 auto;
-        }
+        /* ✅ Адаптивный canvas (исправленный) */
+#reactorCanvas {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    /* Убраны border и background, так как реактор рисуется внутри */
+    display: block;
+    margin: 0 auto;
+    /* Улучшает рендеринг на мобильных */
+    touch-action: none; 
+}
+
+@media (max-width: 768px) {
+    #reactorCanvas {
+        height: 280px; /* Чуть увеличил высоту для телефона */
+    }
+}
+
 
         @media (max-width: 768px) {
             header h1 {
